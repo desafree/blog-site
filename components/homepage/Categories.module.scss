@@ -1,0 +1,22 @@
+.container {
+  list-style: none;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  li {
+    font-size: 18px;
+    line-height: 1.4;
+    // display: inline-block;
+    padding: 5px 10px;
+    // width: 100px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.089);
+    }
+
+    &.active {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}

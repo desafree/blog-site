@@ -1,0 +1,29 @@
+.container {
+  background-color: #000;
+  border: 1px solid #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 50px;
+  .info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    h6 {
+      color: orange;
+    }
+    h5 {
+      opacity: 0.5;
+      font-size: 11px;
+      font-weight: 300;
+    }
+  }
+  h3 {
+    text-align: center;
+    font-weight: 300;
+  }
+}

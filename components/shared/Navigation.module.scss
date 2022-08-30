@@ -1,0 +1,72 @@
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+
+    li {
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+  }
+
+  .socials {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+
+    li {
+      img {
+        width: 24px;
+      }
+    }
+  }
+}
+
+// <nav className={classes.container}>
+//       <Link href="/">
+//         <a>
+//           <h3>Logo</h3>
+//         </a>
+//       </Link>
+//       <ul className={classes.links}>
+//         <li>
+//           <Link href="/">Home Page</Link>
+//         </li>
+//         <li>
+//           <Link href="/">Simple Post</Link>
+//         </li>
+//         <li>
+//           <Link href="/">About us</Link>
+//         </li>
+//         <li>
+//           <Link href="/">Blog</Link>
+//         </li>
+//       </ul>
+//       <ul className={classes.socials}>
+//         <li>
+//           <Link href="/">
+//             <a>
+//               <img src="/images/icons/github-icon.svg" alt="github icon" />
+//             </a>
+//           </Link>
+//           <Link href="/">
+//             <a>
+//               <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
+//             </a>
+//           </Link>
+//         </li>
+//       </ul>
+//     </nav>
