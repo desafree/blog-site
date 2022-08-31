@@ -1,0 +1,48 @@
+.container {
+  background-color: #000;
+  color: #fff;
+  padding: 90px 20px;
+  display: flex;
+  justify-content: space-around;
+
+  .intro {
+    max-width: 350px;
+    h3 {
+      font-size: 32px;
+      line-height: 1.4;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+  }
+
+  .links,
+  .socials {
+    flex-basis: 25%;
+    h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 700;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #fff;
+    }
+
+    ul {
+      margin-top: 30px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      li {
+        font-size: 16px;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+    }
+  }
+}
