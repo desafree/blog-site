@@ -1,0 +1,47 @@
+.container {
+  border-bottom: 2px solid #000;
+  margin: 40px 20px;
+  h5 {
+    margin: 20px 55px 10px;
+    word-spacing: 0.1;
+    line-height: 1;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h2 {
+    margin: 10px 55px 10px;
+    line-height: 1.2;
+    font-size: 67px;
+    font-weight: 500;
+  }
+  .img {
+    margin: 20px 0;
+    height: 320px;
+    background-size: cover;
+    background-image: url(/images/photos/model.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  p {
+    font-size: 19px;
+    line-height: 1.8;
+    font-weight: 400;
+    padding-bottom: 30px;
+
+    margin: 10px 55px 10px;
+  }
+}
+
+// <div className={classes.container}>
+//       <h5>11 December 2021</h5>
+//       <h2>Photo Model</h2>
+//       <p>
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laborum,
+//         sunt debitis veniam ratione, aliquid labore cumque dolorum dicta quidem
+//         sit accusamus, placeat eveniet sequi consequatur provident magnam!
+//         Incidunt, asperiores.
+//       </p>
+//     </div>

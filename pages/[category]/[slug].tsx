@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
+import Post from '../../components/post/Post';
 
 const PostDetail: NextPage = () => {
-  return <div>PostDetail</div>;
+  return (
+    <>
+      <Post></Post>
+    </>
+  );
 };
 
 export default PostDetail;

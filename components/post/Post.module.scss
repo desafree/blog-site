@@ -1,0 +1,11 @@
+.container {
+  margin: 40px 20px;
+  display: flex;
+  gap: 40px;
+  & > div:last-child {
+    flex-basis: 25%;
+    align-self: flex-start;
+    position: sticky;
+    top: 50px;
+  }
+}
