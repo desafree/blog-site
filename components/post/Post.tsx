@@ -1,12 +1,12 @@
 import classes from './Post.module.scss';
 import PostDetail from './PostDetail';
-import RecentPost from '../homepage/RecentPost';
+import RelatedPosts from './ReletadPosts';
 
 const Post = () => {
   return (
     <div className={classes.container}>
       <PostDetail></PostDetail>
-      <RecentPost></RecentPost>
+      <RelatedPosts></RelatedPosts>
     </div>
   );
 };

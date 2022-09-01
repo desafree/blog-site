@@ -1,6 +1,7 @@
 .container {
   margin: 40px 20px;
   display: flex;
+  justify-content: center;
   gap: 40px;
   & > div:last-child {
     flex-basis: 25%;

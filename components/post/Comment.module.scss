@@ -1,0 +1,25 @@
+.container {
+  margin: 50px;
+  h5 {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+}
+
+// <div className={classes.container}>
+//       <h5>David Rasmus</h5>
+//       <p>
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam earum
+//         perferendis praesentium sunt. Tempora beatae libero qui ipsa, aspernatur
+//         quisquam.
+//       </p>
+//     </div>
