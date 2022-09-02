@@ -18,6 +18,9 @@ const CommentForm = () => {
         <label htmlFor="comment">Comment</label>
         <textarea name="comment" id="comment"></textarea>
       </div>
+      <div className={classes.button}>
+        <button>Send</button>
+      </div>
     </form>
   );
 };

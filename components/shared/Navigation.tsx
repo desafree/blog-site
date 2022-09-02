@@ -11,10 +11,10 @@ const Navigation = () => {
       </Link>
       <ul className={classes.links}>
         <li>
-          <Link href="/">Home Page</Link>
+          <Link href="/fashion">Category</Link>
         </li>
         <li>
-          <Link href="/">Simple Post</Link>
+          <Link href="/fashion/shoes">Post Detail</Link>
         </li>
         <li>
           <Link href="/">About us</Link>

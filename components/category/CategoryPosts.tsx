@@ -1,11 +1,11 @@
 import classes from './CategoryPosts.module.scss';
-import Intro from './Intro';
 import Posts from './Posts';
+import Sidebar from './Sidebar';
 
 const CategoryPost = () => {
   return (
     <section className={classes.container}>
-      <Intro></Intro>
+      <Sidebar></Sidebar>
       <Posts></Posts>
     </section>
   );

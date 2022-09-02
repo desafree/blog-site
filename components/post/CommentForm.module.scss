@@ -62,6 +62,25 @@
       margin-bottom: 15px;
     }
   }
+
+  .button {
+    text-align: right;
+    button {
+      padding: 20px 30px;
+      font-family: 'Playfair Display', sans-serif;
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 400;
+      &:hover {
+        background-color: orange;
+      }
+    }
+  }
 }
 
 // <form className={classes.container}>
