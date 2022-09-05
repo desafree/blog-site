@@ -33,6 +33,20 @@
 
     margin: 10px 55px 10px;
   }
+
+  @media only screen and (max-width: 600px) {
+    h5 {
+      margin: 20px 55px 10px 0;
+    }
+
+    h2 {
+      margin: 10px 55px 10px 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
 }
 
 // <div className={classes.container}>

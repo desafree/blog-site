@@ -37,6 +37,10 @@
       }
     }
   }
+
+  @media only screen and (max-width: 1000px) {
+    max-width: none;
+  }
 }
 
 // <div className={classes.container}>
