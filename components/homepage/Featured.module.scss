@@ -19,4 +19,8 @@
     color: #fff;
     max-width: 500px;
   }
+
+  @media only screen and (max-width: 600px) {
+    padding: 300px 20px 70px;
+  }
 }

@@ -45,4 +45,16 @@
       }
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 50px;
+
+    .links,
+    .socials {
+      h3 {
+        padding-bottom: 10px;
+      }
+    }
+  }
 }

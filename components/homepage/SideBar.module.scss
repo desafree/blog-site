@@ -6,4 +6,8 @@
   gap: 50px;
   position: sticky;
   top: 50px;
+
+  @media only screen and (max-width: 1024px) {
+    flex-basis: 40%;
+  }
 }
