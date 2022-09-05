@@ -1,0 +1,125 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #000;
+  color: #fff;
+  display: none;
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    margin: 20px;
+    img {
+      width: 30px;
+    }
+  }
+
+  h5 {
+    font-size: 12px;
+    line-height: 1;
+    white-space: 0.6;
+    font-weight: 700;
+    color: #c5c5c5;
+    margin-bottom: 20px;
+  }
+
+  .links {
+    list-style: none;
+    font-size: 40px;
+    line-height: 1.4;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .socials {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 70px;
+
+    img {
+      width: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  display: none;
+
+  h4 {
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    img {
+      width: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+  }
+}
+
+// <div className={classes.nav}>
+// <h4>Newspapper.</h4>
+// <img src="/images/icons/menu.svg" alt="" />
+// </div>
+
+// <div className={classes.container}>
+//       <h5>Menu</h5>
+//       <ul className={classes.links}>
+//         <li>
+//           <Link href="/fashion">Category</Link>
+//         </li>
+//         <li>
+//           <Link href="/fashion/shoes">Post Detail</Link>
+//         </li>
+//         <li>
+//           <Link href="/">About us</Link>
+//         </li>
+//         <li>
+//           <Link href="/">Blog</Link>
+//         </li>
+//       </ul>
+//       <ul className={classes.socials}>
+//         <li>
+//           <Link href="/">
+//             <a>
+//               <img src="/images/icons/github-icon.svg" alt="github icon" />
+//             </a>
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/">
+//             <a>
+//               <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
+//             </a>
+//           </Link>
+//         </li>
+//       </ul>
+//     </div>
