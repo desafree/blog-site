@@ -1,11 +1,17 @@
 import classes from './Post.module.scss';
 import PostDetail from './PostDetail';
 import RelatedPosts from './ReletadPosts';
+import comment from '../../typescript/interface/comment';
+import { FC } from 'react';
 
-const Post = () => {
+interface Props {
+  comments: comment[];
+}
+
+const Post: FC<Props> = ({ comments }) => {
   return (
     <div className={classes.container}>
-      <PostDetail></PostDetail>
+      <PostDetail comments={comments}></PostDetail>
       <RelatedPosts></RelatedPosts>
     </div>
   );

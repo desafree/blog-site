@@ -1,25 +1,18 @@
 import classes from './GridPost.module.scss';
 import GridItem from './GridItem';
+import post from '../../typescript/interface/post';
+import { FC } from 'react';
 
-const GridPosts = () => {
+interface Props {
+  posts: post[];
+}
+
+const GridPosts: FC<Props> = ({ posts }) => {
   return (
     <div className={classes.container}>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
-      <GridItem></GridItem>
+      {posts.map((post) => {
+        return <GridItem key={post.slug} post={post}></GridItem>;
+      })}
     </div>
   );
 };

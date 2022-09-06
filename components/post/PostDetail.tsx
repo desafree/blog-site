@@ -3,13 +3,19 @@ import IntroPost from './IntroPost';
 import PostBody from './PostBody';
 import PostComments from './PostComments';
 import CommentForm from './CommentForm';
+import comment from '../../typescript/interface/comment';
+import { FC } from 'react';
 
-const PostDetail = () => {
+interface Props {
+  comments: comment[];
+}
+
+const PostDetail: FC<Props> = ({ comments }) => {
   return (
     <div className={classes.container}>
       <IntroPost></IntroPost>
       <PostBody></PostBody>
-      <PostComments></PostComments>
+      <PostComments comments={comments}></PostComments>
       <CommentForm></CommentForm>
     </div>
   );

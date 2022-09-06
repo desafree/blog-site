@@ -1,11 +1,17 @@
 import classes from './Posts.module.scss';
 import GridPosts from './GridPosts';
 import SideBar from './SideBar';
+import post from '../../typescript/interface/post';
+import { FC } from 'react';
 
-const Posts = () => {
+interface Props {
+  posts: post[];
+}
+
+const Posts: FC<Props> = ({ posts }) => {
   return (
     <section className={classes.container}>
-      <GridPosts></GridPosts>
+      <GridPosts posts={posts}></GridPosts>
       <SideBar></SideBar>
     </section>
   );

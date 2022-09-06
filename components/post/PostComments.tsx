@@ -1,13 +1,19 @@
 import classes from './PostComments.module.scss';
 import Comment from './Comment';
+import comment from '../../typescript/interface/comment';
+import { FC } from 'react';
 
-const PostComments = () => {
+interface Props {
+  comments: comment[];
+}
+
+const PostComments: FC<Props> = ({ comments }) => {
   return (
     <div className={classes.container}>
       <h4>Comments</h4>
-      <Comment></Comment>
-      <Comment></Comment>
-      <Comment></Comment>
+      {comments.map((comment) => {
+        return <Comment key={comment.comment} comment={comment} />;
+      })}
     </div>
   );
 };

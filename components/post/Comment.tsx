@@ -1,15 +1,23 @@
 import classes from './Comment.module.scss';
+import comment from '../../typescript/interface/comment';
+import { FC } from 'react';
 
-const Comment = () => {
+interface Props {
+  comment: comment;
+}
+
+const Comment: FC<Props> = ({ comment }) => {
+  const formattedDate = new Date(comment.date).toLocaleString('en', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+
   return (
     <div className={classes.container}>
-      <h5>David Rasmus</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam earum
-        perferendis praesentium sunt. Tempora beatae libero qui ipsa, aspernatur
-        quisquam.
-      </p>
-      <h6>11 December 2021</h6>
+      <h5>{comment.username}</h5>
+      <p>{comment.comment}</p>
+      <h6>{formattedDate}</h6>
     </div>
   );
 };
