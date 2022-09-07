@@ -11,7 +11,7 @@ const Navigation = () => {
       </Link>
       <ul className={classes.links}>
         <li>
-          <Link href="/fashion">Category</Link>
+          <Link href="/All-Posts">Category</Link>
         </li>
         <li>
           <Link href="/fashion/shoes">Post Detail</Link>

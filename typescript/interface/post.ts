@@ -18,6 +18,7 @@ interface post {
   category: string;
   slug: string;
   created: Date;
+  _id: object;
 }
 
 export default post;

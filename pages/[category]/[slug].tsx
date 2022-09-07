@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import Post from '../../components/post/Post';
 import { MongoClient } from 'mongodb';
 import comment from '../../typescript/interface/comment';
@@ -18,14 +18,7 @@ const PostDetail: NextPage<Props> = ({ comments }) => {
 
 export default PostDetail;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [{ params: { category: 'fashion', slug: 'shoes' } }],
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const client = await MongoClient.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bcs0k91.mongodb.net/?retryWrites=true&w=majority`
   );
@@ -35,6 +28,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = JSON.parse(JSON.stringify(response));
   return {
     props: { comments: data },
-    revalidate: 1,
   };
 };
