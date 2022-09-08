@@ -11,7 +11,7 @@ const GridPosts: FC<Props> = ({ posts }) => {
   return (
     <div className={classes.container}>
       {posts.map((post) => {
-        return <GridItem key={post.slug} post={post}></GridItem>;
+        return <GridItem key={post._id.toString()} post={post}></GridItem>;
       })}
     </div>
   );

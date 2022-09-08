@@ -62,7 +62,7 @@ const Featured: FC<Props> = ({ posts }) => {
       <button onClick={handlePrev} className={classes.left}>
         <img src="/images/icons/arrow-circle-left-solid.svg" alt="" />
       </button>
-      <h2>{featuredPosts[index].text.title.primary + index}</h2>
+      <h2>{featuredPosts[index].text.title.primary}</h2>
       <p>{featuredPosts[index].text.paragraph.preview}</p>
     </div>
   );
