@@ -15,7 +15,7 @@ const Footer = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           accusamus perspiciatis aliquid! Laudantium.
         </p>
-        <ReadMore></ReadMore>
+        <ReadMore url="/All-Posts"></ReadMore>
       </div>
       <div className={classes.links}>
         <h3>Links</h3>

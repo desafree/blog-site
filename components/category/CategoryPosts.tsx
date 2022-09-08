@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import category from '../../typescript/interface/category';
 import post from '../../typescript/interface/post';
@@ -11,10 +12,16 @@ interface Props {
 }
 
 const CategoryPost: FC<Props> = ({ category, posts }) => {
+  const router = useRouter();
+  const filteredPosts = posts.filter((post) => {
+    if (router.query.category === 'All-Posts') return true;
+    if (post.category === router.query.category) return true;
+  });
+
   return (
     <section className={classes.container}>
       <Sidebar category={category}></Sidebar>
-      <Posts posts={posts}></Posts>
+      <Posts posts={filteredPosts}></Posts>
     </section>
   );
 };

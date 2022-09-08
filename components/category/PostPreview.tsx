@@ -22,7 +22,7 @@ const PostPreview: FC<Props> = ({ post }) => {
       <h5>{formattedDate}</h5>
       <h3>{post.text.title.primary}</h3>
       <p>{post.text.paragraph.preview}</p>
-      <ReadMore></ReadMore>
+      <ReadMore url={`/${post.category}/${post.slug}`}></ReadMore>
     </div>
   );
 };

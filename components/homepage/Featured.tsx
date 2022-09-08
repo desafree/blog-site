@@ -8,7 +8,6 @@ interface Props {
 
 const Featured: FC<Props> = ({ posts }) => {
   const featuredPosts = posts.filter((post) => {
-    console.log(post);
     if (post?.featured) return true;
   });
 

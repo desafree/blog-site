@@ -2,17 +2,14 @@ import classes from './GridItem.module.scss';
 import post from '../../typescript/interface/post';
 import { FC } from 'react';
 import Link from 'next/link';
+import formatDate from '../../utils/formatDate';
+import { type } from 'os';
 interface Props {
   post: post;
 }
 
 const GridItem: FC<Props> = ({ post }) => {
-  const formattedDate = new Date(post.created).toLocaleString('en', {
-    day: 'numeric',
-    month: 'short',
-  });
-
-  console.log(typeof formattedDate);
+  const formattedDate = formatDate(post.created, 'short');
 
   return (
     <Link href={`/${post.category}/${post.slug}`}>

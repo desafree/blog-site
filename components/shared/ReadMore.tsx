@@ -1,9 +1,14 @@
 import Link from 'next/link';
+import { FC } from 'react';
 import classes from './ReadMore.module.scss';
 
-const ReadMore = () => {
+interface Props {
+  url: string;
+}
+
+const ReadMore: FC<Props> = ({ url }) => {
   return (
-    <Link href="/">
+    <Link href={url}>
       <a className={classes.container}>
         Read more{' '}
         <img src="/images/icons/arrow-circle-right-footer.svg" alt="" />

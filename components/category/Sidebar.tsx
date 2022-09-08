@@ -1,6 +1,6 @@
 import classes from './Sidebar.module.scss';
 import Intro from './Intro';
-import Categories from '../homepage/Categories';
+import Categories from './Categories';
 import category from '../../typescript/interface/category';
 import { FC } from 'react';
 
@@ -12,7 +12,7 @@ const Sidebar: FC<Props> = ({ category }) => {
   return (
     <div className={classes.container}>
       <Intro category={category}></Intro>
-      {/* <Categories></Categories> */}
+      <Categories></Categories>
     </div>
   );
 };
