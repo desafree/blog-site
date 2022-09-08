@@ -1,13 +1,22 @@
 import classes from './RelatedPosts.module.scss';
 import PostPreview from '../homepage/PostPreview';
 import Link from 'next/link';
+import post from '../../typescript/interface/post';
+import { FC } from 'react';
 
-const ReletadPosts = () => {
+interface Props {
+  relatedPost: post[];
+}
+
+const ReletadPosts: FC<Props> = ({ relatedPost }) => {
   return (
     <div className={classes.container}>
       <h4>Reletad Post</h4>
-      {/* <PostPreview></PostPreview>
-      <PostPreview></PostPreview> */}
+      {relatedPost.map((post) => {
+        return (
+          <PostPreview key={post._id.toString()} post={post}></PostPreview>
+        );
+      })}
       <div className={classes.recent}>
         <Link href="/">
           <a>

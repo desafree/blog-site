@@ -14,6 +14,7 @@ const PostComments: FC<Props> = ({ comments }) => {
       {comments.map((comment) => {
         return <Comment key={comment.comment} comment={comment} />;
       })}
+      {comments.length === 0 && <p>No comments...</p>}
     </div>
   );
 };

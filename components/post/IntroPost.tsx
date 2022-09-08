@@ -1,17 +1,26 @@
+import { FC } from 'react';
+import post from '../../typescript/interface/post';
+import formatDate from '../../utils/formatDate';
 import classes from './IntroPost.module.scss';
 
-const IntroPost = () => {
+interface Props {
+  post: post;
+}
+
+const IntroPost: FC<Props> = ({ post }) => {
+  const formattedDate = formatDate(post.created, 'long');
+
   return (
     <div className={classes.container}>
-      <h5>11 December 2021</h5>
-      <h2>Photo Model</h2>
-      <div className={classes.img}></div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laborum,
-        sunt debitis veniam ratione, aliquid labore cumque dolorum dicta quidem
-        sit accusamus, placeat eveniet sequi consequatur provident magnam!
-        Incidunt, asperiores.
-      </p>
+      <h5>{formattedDate}</h5>
+      <h2>{post.text.title.primary}</h2>
+      <div
+        className={classes.img}
+        style={{
+          backgroundImage: `url(${post.img.primary})`,
+        }}
+      ></div>
+      <p>{post.text.paragraph.preview}</p>
     </div>
   );
 };
