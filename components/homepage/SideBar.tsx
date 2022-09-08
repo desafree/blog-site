@@ -1,12 +1,19 @@
 import classes from './SideBar.module.scss';
 import Categories from './Categories';
 import RecentPost from './RecentPost';
+import { FC } from 'react';
+import post from '../../typescript/interface/post';
 
-const SideBar = () => {
+interface Props {
+  changeActiveCategory: (newCategory: string) => void;
+  posts: post[];
+}
+
+const SideBar: FC<Props> = ({ changeActiveCategory, posts }) => {
   return (
     <div className={classes.container}>
-      <Categories></Categories>
-      <RecentPost></RecentPost>
+      <Categories changeActiveCategory={changeActiveCategory}></Categories>
+      <RecentPost posts={posts}></RecentPost>
     </div>
   );
 };

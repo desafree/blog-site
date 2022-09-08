@@ -11,32 +11,33 @@ const Navigation = () => {
       </Link>
       <ul className={classes.links}>
         <li>
-          <Link href="/All-Posts">Category</Link>
+          <Link href="/All-Posts">All Posts</Link>
         </li>
         <li>
-          <Link href="/fashion/shoes">Post Detail</Link>
+          <Link href="/JavaScript/slug-prova">Post Detail</Link>
         </li>
         <li>
           <Link href="/">About us</Link>
         </li>
-        <li>
-          <Link href="/">Blog</Link>
-        </li>
       </ul>
       <ul className={classes.socials}>
         <li>
-          <Link href="/">
-            <a>
-              <img src="/images/icons/github-icon.svg" alt="github icon" />
-            </a>
-          </Link>
+          <a
+            href="https://github.com/desafree"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="/images/icons/github-icon.svg" alt="github icon" />
+          </a>
         </li>
         <li>
-          <Link href="/">
-            <a>
-              <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
-            </a>
-          </Link>
+          <a
+            href="https://www.linkedin.com/in/nicola-de-sanctis-8b094a1b3/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
+          </a>
         </li>
       </ul>
     </nav>

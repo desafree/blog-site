@@ -6,7 +6,11 @@ const Footer = () => {
   return (
     <footer className={classes.container}>
       <div className={classes.intro}>
-        <h3>Newspaper.</h3>
+        <Link href="/">
+          <a>
+            <h3>Newspaper.</h3>
+          </a>
+        </Link>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
           accusamus perspiciatis aliquid! Laudantium.
@@ -23,10 +27,10 @@ const Footer = () => {
             <Link href="/">About Us</Link>
           </li>
           <li>
-            <Link href="/">Blog</Link>
+            <Link href="/All-Posts">All Post</Link>
           </li>
           <li>
-            <Link href="/">Simple post</Link>
+            <Link href="/HTML/slug-prova">Post detail</Link>
           </li>
         </ul>
       </div>
@@ -34,13 +38,25 @@ const Footer = () => {
         <h3>Socials</h3>
         <ul>
           <li>
-            <a href="#">Linkedin</a>
+            <a
+              href="https://www.linkedin.com/in/nicola-de-sanctis-8b094a1b3/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Linkedin
+            </a>
           </li>
           <li>
-            <a href="#">Email</a>
+            <a href="mailto:nicoladesanctis99@gmail.com">Email</a>
           </li>
           <li>
-            <a href="#">GitHub</a>
+            <a
+              href="https://github.com/desafree"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
           </li>
         </ul>
       </div>

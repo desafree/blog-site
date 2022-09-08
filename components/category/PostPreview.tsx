@@ -2,17 +2,14 @@ import classes from './PostPreview.module.scss';
 import ReadMore from '../shared/ReadMore';
 import post from '../../typescript/interface/post';
 import { FC } from 'react';
+import formatDate from '../../utils/formatDate';
 
 interface Props {
   post: post;
 }
 
 const PostPreview: FC<Props> = ({ post }) => {
-  const formattedDate = new Date(post.created).toLocaleString('en', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
+  const formattedDate = formatDate(post.created, 'long');
 
   return (
     <div className={classes.container}>

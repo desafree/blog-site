@@ -19,6 +19,7 @@ interface post {
   slug: string;
   created: Date;
   _id: object;
+  featured?: boolean;
 }
 
 export default post;

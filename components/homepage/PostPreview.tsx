@@ -1,19 +1,29 @@
 import classes from './PostPreview.module.scss';
 import Link from 'next/link';
+import post from '../../typescript/interface/post';
+import { FC } from 'react';
+import formatDate from '../../utils/formatDate';
 
-const PostPreview = () => {
+interface Props {
+  post: post;
+}
+
+const PostPreview: FC<Props> = ({ post }) => {
+  const formattedDate = formatDate(post.created, 'long');
+
   return (
     <div className={classes.container}>
-      <div className={classes.img}></div>
-      <h5>11 December 2021</h5>
-      <h3>Photo model</h3>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
-        accusamus provident magni corporis velit id repellat fuga modi placeat
-        quibusdam?
-      </p>
+      <div
+        className={classes.img}
+        style={{
+          backgroundImage: `url(${post.img.preview})`,
+        }}
+      ></div>
+      <h5>{formattedDate}</h5>
+      <h3>{post.text.title.primary}</h3>
+      <p>{post.text.paragraph.preview}</p>
       <div className={classes.read}>
-        <Link href="/">
+        <Link href={`/${post.category}/${post.slug}`}>
           <a>
             Read more <img src="/images/icons/arrow-circle-right.svg" alt="" />
           </a>

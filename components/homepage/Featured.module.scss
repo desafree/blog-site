@@ -1,7 +1,10 @@
 .container {
   padding: 300px 150px 70px;
   margin: 0 0 100pxs;
-  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 
   h2 {
     font-size: 46px;
@@ -20,7 +23,49 @@
     max-width: 500px;
   }
 
+  .right,
+  .left {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s;
+    position: absolute;
+    top: 50%;
+
+    &:hover {
+      background-color: #000;
+    }
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .right {
+    right: 20px;
+  }
+
+  .left {
+    left: 20px;
+  }
+
   @media only screen and (max-width: 600px) {
     padding: 300px 20px 70px;
+    .right {
+      top: auto;
+      bottom: 2% !important;
+      right: 40%;
+    }
+
+    .left {
+      top: auto;
+      bottom: 2% !important;
+      left: 40%;
+    }
   }
 }

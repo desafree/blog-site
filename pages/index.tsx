@@ -12,7 +12,7 @@ interface Props {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <>
-      <Featured></Featured>
+      <Featured posts={posts}></Featured>
       <Layout>
         <Posts posts={posts}></Posts>
       </Layout>

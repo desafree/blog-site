@@ -12,7 +12,7 @@ const Sidebar: FC<Props> = ({ category }) => {
   return (
     <div className={classes.container}>
       <Intro category={category}></Intro>
-      <Categories></Categories>
+      {/* <Categories></Categories> */}
     </div>
   );
 };

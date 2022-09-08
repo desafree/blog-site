@@ -6,7 +6,13 @@ const Disclaimer = () => {
       <h3>Personal Project of Nicola De Sanctis</h3>
       <ul>
         <li>
-          <a href="https://github.com/desafree">GitHub</a>
+          <a
+            href="https://github.com/desafree"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </li>
         <li>
           <a href="mailto:nicoladesanctis99@gmail.com">Email</a>

@@ -6,8 +6,8 @@ const ReletadPosts = () => {
   return (
     <div className={classes.container}>
       <h4>Reletad Post</h4>
-      <PostPreview></PostPreview>
-      <PostPreview></PostPreview>
+      {/* <PostPreview></PostPreview>
+      <PostPreview></PostPreview> */}
       <div className={classes.recent}>
         <Link href="/">
           <a>
