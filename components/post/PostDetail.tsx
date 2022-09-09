@@ -4,7 +4,7 @@ import PostBody from './PostBody';
 import PostComments from './PostComments';
 import CommentForm from './CommentForm';
 import comment from '../../typescript/interface/comment';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import post from '../../typescript/interface/post';
 
 interface Props {
@@ -12,13 +12,22 @@ interface Props {
   post: post;
 }
 
-const PostDetail: FC<Props> = ({ comments, post }) => {
+const PostDetail: FC<Props> = ({ post }) => {
+  const [updateComponent, setUpdateComponent] = useState(0);
+
+  const handleUpdate = () => {
+    console.log('fired');
+    setUpdateComponent((prevState) => {
+      return prevState + 1;
+    });
+  };
+
   return (
     <div className={classes.container}>
       <IntroPost post={post}></IntroPost>
       <PostBody post={post}></PostBody>
-      <PostComments comments={comments}></PostComments>
-      <CommentForm></CommentForm>
+      <PostComments updateComponent={updateComponent}></PostComments>
+      <CommentForm handleUpdate={handleUpdate}></CommentForm>
     </div>
   );
 };

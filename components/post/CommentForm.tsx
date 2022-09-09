@@ -1,8 +1,12 @@
 import { useRouter } from 'next/router';
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import classes from './CommentForm.module.scss';
 
-const CommentForm = () => {
+interface Props {
+  handleUpdate: () => void;
+}
+
+const CommentForm: FC<Props> = ({ handleUpdate }) => {
   const form = useRef<null | HTMLFormElement>(null);
   const router = useRouter();
   const slug = router.query.slug;
@@ -21,6 +25,7 @@ const CommentForm = () => {
         body: JSON.stringify(commentObj),
         headers: { 'Content-Type': 'application/json' },
       }).then(() => {
+        handleUpdate();
         form.current?.reset();
       });
     }

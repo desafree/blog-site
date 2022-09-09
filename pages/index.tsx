@@ -4,6 +4,7 @@ import Featured from '../components/homepage/Featured';
 import Posts from '../components/homepage/Posts';
 import Layout from '../components/ui/Layout';
 import post from '../typescript/interface/post';
+import Newsletter from '../components/homepage/Newsletter';
 
 interface Props {
   posts: post[];
@@ -16,6 +17,7 @@ const Home: NextPage<Props> = ({ posts }) => {
       <Layout>
         <Posts posts={posts}></Posts>
       </Layout>
+      <Newsletter></Newsletter>
     </>
   );
 };
