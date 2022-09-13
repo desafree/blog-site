@@ -6,9 +6,10 @@ import { FC } from 'react';
 
 interface Props {
   relatedPost: post[];
+  postTime: { next: post; prev: post };
 }
 
-const ReletadPosts: FC<Props> = ({ relatedPost }) => {
+const ReletadPosts: FC<Props> = ({ relatedPost, postTime }) => {
   return (
     <div className={classes.container}>
       <h4>Reletad Post</h4>
@@ -18,16 +19,20 @@ const ReletadPosts: FC<Props> = ({ relatedPost }) => {
         );
       })}
       <div className={classes.recent}>
-        <Link href="/">
-          <a>
-            <img src="/images/icons/arrow-back.svg" alt="" /> prev post
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            next post <img src="/images/icons/arrow-forward.svg" alt="" />
-          </a>
-        </Link>
+        {postTime.prev && (
+          <Link href={`/${postTime.prev.category}/${postTime.prev.slug}`}>
+            <a>
+              <img src="/images/icons/arrow-back.svg" alt="" /> prev post
+            </a>
+          </Link>
+        )}
+        {postTime.next && (
+          <Link href={`/${postTime.next.category}/${postTime.next.slug}`}>
+            <a>
+              next post <img src="/images/icons/arrow-forward.svg" alt="" />
+            </a>
+          </Link>
+        )}
       </div>
     </div>
   );
