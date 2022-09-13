@@ -1,15 +1,13 @@
 import { useRouter } from 'next/router';
-import React, { FC, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
+import commentContext from '../../context/commentsContext';
 import classes from './CommentForm.module.scss';
 
-interface Props {
-  handleUpdate: () => void;
-}
-
-const CommentForm: FC<Props> = ({ handleUpdate }) => {
+const CommentForm = () => {
   const form = useRef<null | HTMLFormElement>(null);
   const router = useRouter();
   const slug = router.query.slug;
+  const updateComments = useContext(commentContext).updateComments;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +23,7 @@ const CommentForm: FC<Props> = ({ handleUpdate }) => {
         body: JSON.stringify(commentObj),
         headers: { 'Content-Type': 'application/json' },
       }).then(() => {
-        handleUpdate();
+        updateComments();
         form.current?.reset();
       });
     }

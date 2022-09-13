@@ -9,7 +9,7 @@ const Newsletter = () => {
     if (form !== null) {
       const email = form.current?.email.value;
       const commentObj = { email };
-      fetch('/api/comment', {
+      fetch('/api/newsletter', {
         method: 'POST',
         body: JSON.stringify(commentObj),
         headers: { 'Content-Type': 'application/json' },

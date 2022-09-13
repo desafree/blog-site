@@ -1,14 +1,11 @@
 import classes from './Posts.module.scss';
 import GridPosts from './GridPosts';
 import SideBar from './SideBar';
-import post from '../../typescript/interface/post';
-import { FC, useState } from 'react';
+import { useContext, useState } from 'react';
+import postContext from '../../context/postsContext';
 
-interface Props {
-  posts: post[];
-}
-
-const Posts: FC<Props> = ({ posts }) => {
+const Posts = () => {
+  const posts = useContext(postContext).posts;
   const [activeCategory, setActiveCategory] = useState('All-Posts');
   const filteredPost = posts.filter((post) => {
     if (activeCategory === 'All-Posts') return true;

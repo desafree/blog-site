@@ -3,6 +3,8 @@ import CategoryPosts from '../../components/category/CategoryPosts';
 import { MongoClient } from 'mongodb';
 import category from '../../typescript/interface/category';
 import post from '../../typescript/interface/post';
+import { useContext } from 'react';
+import postsContext from '../../context/postsContext';
 
 interface Props {
   category: category;
@@ -10,9 +12,17 @@ interface Props {
 }
 
 const Category: NextPage<Props> = ({ category, posts }) => {
+  const postsCtx = useContext(postsContext);
+  postsCtx.updateCategory(category);
+  postsCtx.updatePosts(posts);
+
   return (
     <>
-      <CategoryPosts category={category} posts={posts}></CategoryPosts>
+      {postsCtx.posts.length > 0 && (
+        <>
+          <CategoryPosts></CategoryPosts>
+        </>
+      )}
     </>
   );
 };

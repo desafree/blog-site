@@ -6,15 +6,14 @@ import { FC } from 'react';
 import post from '../../typescript/interface/post';
 
 interface Props {
-  comments: comment[];
   post: post;
   relatedPost: post[];
 }
 
-const Post: FC<Props> = ({ comments, post, relatedPost }) => {
+const Post: FC<Props> = ({ post, relatedPost }) => {
   return (
     <div className={classes.container}>
-      <PostDetail comments={comments} post={post}></PostDetail>
+      <PostDetail post={post}></PostDetail>
       <RelatedPosts relatedPost={relatedPost}></RelatedPosts>
     </div>
   );

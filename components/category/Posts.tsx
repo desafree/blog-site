@@ -1,13 +1,11 @@
 import classes from './Posts.module.scss';
 import PostPreview from './PostPreview';
-import post from '../../typescript/interface/post';
-import { FC } from 'react';
+import { useContext } from 'react';
+import postContext from '../../context/postsContext';
 
-interface Props {
-  posts: post[];
-}
+const Posts = () => {
+  const posts = useContext(postContext).posts;
 
-const Posts: FC<Props> = ({ posts }) => {
   return (
     <div className={classes.container}>
       {posts.map((post) => {

@@ -3,6 +3,8 @@ import Post from '../../components/post/Post';
 import { MongoClient } from 'mongodb';
 import comment from '../../typescript/interface/comment';
 import post from '../../typescript/interface/post';
+import { useContext, useEffect } from 'react';
+import commentContext from '../../context/commentsContext';
 
 interface Props {
   comments: comment[];
@@ -10,11 +12,15 @@ interface Props {
   relatedPost: post[];
 }
 
-const PostDetail: NextPage<Props> = ({ comments, post, relatedPost }) => {
-  console.log(comments);
+const PostDetail: NextPage<Props> = ({ post, relatedPost }) => {
+  const commentsCtx = useContext(commentContext);
+  useEffect(() => {
+    commentsCtx.updateComments();
+  }, []);
+
   return (
     <>
-      <Post comments={comments} post={post} relatedPost={relatedPost}></Post>
+      <Post post={post} relatedPost={relatedPost}></Post>
     </>
   );
 };

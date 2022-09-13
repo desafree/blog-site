@@ -1,12 +1,9 @@
-import { FC, useState } from 'react';
-import post from '../../typescript/interface/post';
+import { useContext, useState } from 'react';
 import classes from './Featured.module.scss';
+import postContext from '../../context/postsContext';
 
-interface Props {
-  posts: post[];
-}
-
-const Featured: FC<Props> = ({ posts }) => {
+const Featured = () => {
+  const posts = useContext(postContext).posts;
   const featuredPosts = posts.filter((post) => {
     if (post?.featured) return true;
   });

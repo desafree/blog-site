@@ -5,19 +5,28 @@ import Posts from '../components/homepage/Posts';
 import Layout from '../components/ui/Layout';
 import post from '../typescript/interface/post';
 import Newsletter from '../components/homepage/Newsletter';
+import { useContext } from 'react';
+import postContext from '../context/postsContext';
 
 interface Props {
   posts: post[];
 }
 
 const Home: NextPage<Props> = ({ posts }) => {
+  const postsContext = useContext(postContext);
+  postsContext.updatePosts(posts);
+
   return (
     <>
-      <Featured posts={posts}></Featured>
-      <Layout>
-        <Posts posts={posts}></Posts>
-      </Layout>
-      <Newsletter></Newsletter>
+      {postsContext.posts.length > 0 && (
+        <>
+          <Featured></Featured>
+          <Layout>
+            <Posts></Posts>
+          </Layout>
+          <Newsletter></Newsletter>
+        </>
+      )}
     </>
   );
 };

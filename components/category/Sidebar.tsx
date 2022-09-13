@@ -1,14 +1,11 @@
 import classes from './Sidebar.module.scss';
 import Intro from './Intro';
 import Categories from './Categories';
-import category from '../../typescript/interface/category';
-import { FC } from 'react';
+import { useContext } from 'react';
+import postContext from '../../context/postsContext';
 
-interface Props {
-  category: category;
-}
-
-const Sidebar: FC<Props> = ({ category }) => {
+const Sidebar = () => {
+  const category = useContext(postContext).category;
   return (
     <div className={classes.container}>
       <Intro category={category}></Intro>
