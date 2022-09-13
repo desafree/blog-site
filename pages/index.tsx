@@ -38,7 +38,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bcs0k91.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
-  const response = await db.collection('posts').find().toArray();
+  const response = await db
+    .collection('posts')
+    .find()
+    .sort({ created: -1 })
+    .toArray();
   client.close();
   const data = JSON.parse(JSON.stringify(response));
   return {

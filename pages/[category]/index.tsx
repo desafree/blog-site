@@ -18,7 +18,7 @@ const Category: NextPage<Props> = ({ category, posts }) => {
 
   return (
     <>
-      {postsCtx.posts.length > 0 && (
+      {postsCtx.posts.length > 0 && postsCtx.category && (
         <>
           <CategoryPosts></CategoryPosts>
         </>
@@ -53,7 +53,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
   const db = client.db();
   const responseCategory = await db.collection('category').find().toArray();
-  const responsePosts = await db.collection('posts').find().toArray();
+  const responsePosts = await db
+    .collection('posts')
+    .find()
+    .sort({ created: -1 })
+    .toArray();
   client.close();
   const category = responseCategory.filter((item) => {
     if (item.name === context?.params?.category) return true;
