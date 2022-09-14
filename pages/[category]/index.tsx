@@ -18,7 +18,7 @@ const Category: NextPage<Props> = ({ category, posts }) => {
 
   return (
     <>
-      {postsCtx.posts.length > 0 && postsCtx.category && (
+      {postsCtx.posts.length > 0 && postsCtx.category.name && (
         <>
           <CategoryPosts></CategoryPosts>
         </>

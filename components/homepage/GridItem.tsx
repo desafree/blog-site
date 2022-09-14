@@ -15,7 +15,9 @@ const GridItem: FC<Props> = ({ post }) => {
     <Link href={`/${post.category}/${post.slug}`}>
       <a className={classes.container}>
         <div className={classes.info}>
-          <h6>{post.category}</h6>
+          <h6 className={classes[post.category.split('.')[0]]}>
+            {post.category}
+          </h6>
           <h5>{formattedDate}</h5>
         </div>
         <h3>{post.text.title.primary}</h3>

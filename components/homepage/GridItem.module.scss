@@ -23,6 +23,20 @@
     font-size: 18px;
     h6 {
       color: orange;
+
+      &.JavaScript {
+        color: #f0a500;
+      }
+
+      &.CSS {
+        color: #e45826;
+      }
+      &.React {
+        color: #8fbdd3;
+      }
+      &.HTML {
+        color: #a0d995;
+      }
     }
     h5 {
       opacity: 0.5;

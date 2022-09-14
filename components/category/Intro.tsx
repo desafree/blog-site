@@ -1,12 +1,9 @@
 import classes from './Intro.module.scss';
-import category from '../../typescript/interface/category';
-import { FC } from 'react';
+import { useContext } from 'react';
+import postContext from '../../context/postsContext';
 
-interface Props {
-  category: category;
-}
-
-const Intro: FC<Props> = ({ category }) => {
+const Intro = () => {
+  const category = useContext(postContext).category;
   const title = category.name.split('-').join(' ');
 
   return (
