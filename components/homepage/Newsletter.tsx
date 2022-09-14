@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import classes from './Newsletter.module.scss';
+import notificationContext from '../../context/notificationsContext';
 
 const Newsletter = () => {
   const form = useRef<HTMLFormElement | null>(null);
+  const sendNotification = useContext(notificationContext).updateNotification;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const Newsletter = () => {
         headers: { 'Content-Type': 'application/json' },
       }).then(() => {
         form.current?.reset();
+        sendNotification('email');
       });
     }
   };

@@ -7,6 +7,8 @@ import post from '../typescript/interface/post';
 import Newsletter from '../components/homepage/Newsletter';
 import { useContext } from 'react';
 import postContext from '../context/postsContext';
+import Notification from '../components/shared/Notification';
+import notificationContext from '../context/notificationsContext';
 
 interface Props {
   posts: post[];
@@ -14,6 +16,7 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   const postsContext = useContext(postContext);
+  const notification = useContext(notificationContext).type;
   postsContext.updatePosts(posts);
 
   return (
@@ -24,6 +27,8 @@ const Home: NextPage<Props> = ({ posts }) => {
           <Layout>
             <Posts></Posts>
           </Layout>
+          {notification.length > 0 && <Notification></Notification>}
+
           <Newsletter></Newsletter>
         </>
       )}

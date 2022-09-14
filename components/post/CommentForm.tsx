@@ -2,8 +2,10 @@ import { useRouter } from 'next/router';
 import React, { useContext, useRef } from 'react';
 import commentContext from '../../context/commentsContext';
 import classes from './CommentForm.module.scss';
+import notificationContext from '../../context/notificationsContext';
 
 const CommentForm = () => {
+  const updateNotification = useContext(notificationContext).updateNotification;
   const form = useRef<null | HTMLFormElement>(null);
   const router = useRouter();
   const slug = router.query.slug;
@@ -25,6 +27,7 @@ const CommentForm = () => {
       }).then(() => {
         updateComments();
         form.current?.reset();
+        updateNotification('comment');
       });
     }
   };

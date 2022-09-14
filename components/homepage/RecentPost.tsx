@@ -7,10 +7,7 @@ interface Props {
 }
 
 const RecentPost: FC<Props> = ({ posts }) => {
-  const [firstPost, secondPost] = posts.sort((post1, post2) => {
-    if (post1.created < post2.created) return -1;
-    else return 1;
-  });
+  const [firstPost, secondPost] = posts;
 
   return (
     <div className={classes.container}>

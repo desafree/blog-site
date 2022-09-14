@@ -5,6 +5,8 @@ import post from '../../typescript/interface/post';
 import { useContext, useEffect } from 'react';
 import commentContext from '../../context/commentsContext';
 import { useRouter } from 'next/router';
+import notificationContext from '../../context/notificationsContext';
+import Notification from '../../components/shared/Notification';
 
 interface Props {
   post: post;
@@ -14,6 +16,7 @@ interface Props {
 
 const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
   console.log(postTime);
+  const notification = useContext(notificationContext).type;
   const commentsCtx = useContext(commentContext);
   const slug = useRouter().query.slug;
   useEffect(() => {
@@ -23,6 +26,7 @@ const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
   return (
     <>
       <Post post={post} relatedPost={relatedPost} postTime={postTime}></Post>
+      {notification.length > 0 && <Notification></Notification>}
     </>
   );
 };
