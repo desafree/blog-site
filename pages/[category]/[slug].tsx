@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Post from '../../components/post/Post';
 import { MongoClient } from 'mongodb';
 import post from '../../typescript/interface/post';
@@ -15,7 +15,6 @@ interface Props {
 }
 
 const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
-  console.log(postTime);
   const notification = useContext(notificationContext).type;
   const commentsCtx = useContext(commentContext);
   const slug = useRouter().query.slug;
@@ -33,14 +32,38 @@ const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
 
 export default PostDetail;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { category: 'JavaScript', slug: 'slug-prova1' } },
+      { params: { category: 'React.js', slug: 'slug-prova2' } },
+      { params: { category: 'React.js', slug: 'slug-prova3' } },
+      { params: { category: 'HTML', slug: 'slug-prova4' } },
+      { params: { category: 'CSS', slug: 'slug-prova5' } },
+      { params: { category: 'CSS', slug: 'slug-prova6' } },
+      { params: { category: 'JavaScript', slug: 'slug-prova7' } },
+      { params: { category: 'JavaScript', slug: 'slug-prova8' } },
+      { params: { category: 'CSS', slug: 'slug-prova10' } },
+      { params: { category: 'CSS', slug: 'slug-prova11' } },
+      { params: { category: 'HTML', slug: 'slug-prova12' } },
+      { params: { category: 'CSS', slug: 'slug-prova13' } },
+      { params: { category: 'HTML', slug: 'slug-prova14' } },
+      { params: { category: 'React.js', slug: 'slug-prova15' } },
+      { params: { category: 'CSS', slug: 'slug-prova9' } },
+      { params: { category: 'JavaScript', slug: 'slug-prova16' } },
+    ],
+    fallback: 'blocking',
+  };
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const client = await MongoClient.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bcs0k91.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
   const responseComments = await db.collection('comments').find().toArray();
   const postComment = responseComments.filter((comment) => {
-    if (comment.postSlug === context.query.slug) return true;
+    if (comment.postSlug === context.params?.slug) return true;
   });
   const posts = await db.collection('posts').find().toArray();
   const postOrdered = posts.sort((a, b) => {
@@ -49,8 +72,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
   const [post] = posts.filter((post) => {
     if (
-      post.category === context.query.category &&
-      post.slug === context.query.slug
+      post.category === context.params?.category &&
+      post.slug === context.params?.slug
     )
       return true;
   });
@@ -58,15 +81,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if (postItem === post) return true;
     return false;
   });
-  console.log(postIndex);
   const postNext =
     postIndex === postOrdered.length - 1 ? null : postOrdered[postIndex + 1];
   const postPrev = postIndex === 0 ? null : postOrdered[postIndex - 1];
   const relatedPosts = posts
     .filter((post) => {
       if (
-        post.category === context.query.category &&
-        post.slug !== context.query.slug
+        post.category === context.params?.category &&
+        post.slug !== context.params?.slug
       )
         return true;
     })
