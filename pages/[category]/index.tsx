@@ -5,6 +5,7 @@ import category from '../../typescript/interface/category';
 import post from '../../typescript/interface/post';
 import { useContext } from 'react';
 import postsContext from '../../context/postsContext';
+import Loading from '../../components/shared/Loading';
 
 interface Props {
   category: category;
@@ -18,10 +19,12 @@ const Category: NextPage<Props> = ({ category, posts }) => {
 
   return (
     <>
-      {postsCtx.posts.length > 0 && postsCtx.category.name && (
+      {postsCtx.posts.length > 0 && postsCtx.category.name ? (
         <>
           <CategoryPosts></CategoryPosts>
         </>
+      ) : (
+        <Loading />
       )}
     </>
   );

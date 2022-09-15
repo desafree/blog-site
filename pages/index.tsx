@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import postContext from '../context/postsContext';
 import Notification from '../components/shared/Notification';
 import notificationContext from '../context/notificationsContext';
+import Loading from '../components/shared/Loading';
 
 interface Props {
   posts: post[];
@@ -21,7 +22,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
   return (
     <>
-      {postsContext.posts.length > 0 && (
+      {postsContext.posts.length > 0 ? (
         <>
           <Featured></Featured>
           <Layout>
@@ -31,6 +32,8 @@ const Home: NextPage<Props> = ({ posts }) => {
 
           <Newsletter></Newsletter>
         </>
+      ) : (
+        <Loading />
       )}
     </>
   );
