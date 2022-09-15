@@ -8,6 +8,10 @@ import { useRouter } from 'next/router';
 import notificationContext from '../../context/notificationsContext';
 import Notification from '../../components/shared/Notification';
 import useScrollToTop from '../../hooks/useScrollTop';
+import Disclaimer from '../../components/shared/Disclaimer';
+import Navigation from '../../components/shared/Navigation';
+import NavigationMobile from '../../components/shared/NavigationMobile';
+import Head from 'next/head';
 
 interface Props {
   post: post;
@@ -26,6 +30,13 @@ const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
 
   return (
     <>
+      <Head>
+        <title>{post.text.title.primary}</title>
+        <meta name="description" content={post.text.paragraph.preview}></meta>
+      </Head>
+      <Disclaimer></Disclaimer>
+      <Navigation></Navigation>
+      <NavigationMobile></NavigationMobile>
       <Post post={post} relatedPost={relatedPost} postTime={postTime}></Post>
       {notification.length > 0 && <Notification></Notification>}
     </>

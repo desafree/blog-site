@@ -1,12 +1,14 @@
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
-import Disclaimer from '../components/shared/Disclaimer';
-import Navigation from '../components/shared/Navigation';
+
 import Footer from '../components/shared/Footer';
-import NavigationMobile from '../components/shared/NavigationMobile';
 import PostsContextProvider from '../context/postsContextProvider';
 import CommentsContextProvider from '../context/commentsContextProvider';
 import NotificationsContextProvider from '../context/notificationsContextProvider';
+import gsap from 'gsap';
+import Head from 'next/head';
+
+gsap.config({ nullTargetWarn: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,9 +16,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NotificationsContextProvider>
         <PostsContextProvider>
           <CommentsContextProvider>
-            <Disclaimer></Disclaimer>
-            <Navigation></Navigation>
-            <NavigationMobile></NavigationMobile>
+            <Head>
+              <title>Blog Project</title>
+              <meta
+                name="description"
+                content="Personal project of Nicola De Sanctis"
+              ></meta>
+            </Head>
             <Component {...pageProps} />
             <Footer></Footer>
           </CommentsContextProvider>

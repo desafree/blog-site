@@ -2,9 +2,27 @@ import classes from './NavigationMobile.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import useLayoutEffect from '../../hooks/useIsomorphicLayoutEffect';
 
 const NavigationMobile = () => {
   const [menu, setMenu] = useState(false);
+  const nav = useRef<HTMLElement>(null);
+  const q = gsap.utils.selector(nav);
+
+  useLayoutEffect(() => {
+    const timeline = gsap
+      .timeline()
+      .from(nav.current, { x: 200 })
+      .from(q('h5'), { x: -5, opacity: 0 })
+      .from(q('li'), { x: -5, opacity: 0, stagger: 0.1 }, '<');
+
+    return () => {
+      timeline.kill();
+    };
+  }, [menu]);
+
   const handleClick = () => {
     setMenu((prevState) => !prevState);
   };
@@ -27,7 +45,7 @@ const NavigationMobile = () => {
         </button>
       </div>
       {menu && (
-        <nav className={classes.container}>
+        <nav className={classes.container} ref={nav}>
           <button onClick={handleClick}>
             <Image
               src="/images/icons/close.svg"

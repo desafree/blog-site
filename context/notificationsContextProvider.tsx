@@ -8,7 +8,6 @@ interface Props {
 
 const NotificationsContextProvider: FC<Props> = ({ children }) => {
   const [notification, setNotification] = useState('');
-  console.log(notification);
 
   const updateNotification = (type: string): void => {
     setNotification(type);
@@ -17,7 +16,7 @@ const NotificationsContextProvider: FC<Props> = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setNotification('');
-    }, 2000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);

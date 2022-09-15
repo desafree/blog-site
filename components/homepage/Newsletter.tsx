@@ -39,7 +39,7 @@ const Newsletter = () => {
       <form ref={form} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" />
+          <input type="email" name="email" required />
         </div>
         <button>Subscribe</button>
       </form>

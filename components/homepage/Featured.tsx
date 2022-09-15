@@ -2,14 +2,31 @@ import { useContext, useState } from 'react';
 import classes from './Featured.module.scss';
 import postContext from '../../context/postsContext';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import useLayoutEffect from '../../hooks/useIsomorphicLayoutEffect';
 
 const Featured = () => {
+  const container = useRef<HTMLDivElement>(null);
+  const q = gsap.utils.selector(container);
+
   const posts = useContext(postContext).posts;
   const featuredPosts = posts.filter((post) => {
     if (post?.featured) return true;
   });
 
   const [index, setIndex] = useState(0);
+
+  useLayoutEffect(() => {
+    const timeline = gsap
+      .timeline()
+      .from(q('h2'), { y: 5, opacity: 0 })
+      .from(q('p'), { y: 5, opacity: 0 }, '0');
+
+    return () => {
+      timeline.kill();
+    };
+  }, [index]);
 
   const handleNext = () => {
     if (index + 1 > featuredPosts.length - 1) {
@@ -49,6 +66,7 @@ const Featured = () => {
 
   return (
     <div
+      ref={container}
       className={classes.container}
       style={{
         backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(${featuredPosts[index].img.primary})`,

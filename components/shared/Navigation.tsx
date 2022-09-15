@@ -1,10 +1,27 @@
 import classes from './Navigation.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import useLayoutEffect from '../../hooks/useIsomorphicLayoutEffect';
 
 const Navigation = () => {
+  const nav = useRef<HTMLElement>(null);
+  const q = gsap.utils.selector(nav);
+
+  useLayoutEffect(() => {
+    const timeline = gsap
+      .timeline()
+      .from(q('h3'), { y: 5, opacity: 0 })
+      .from(q('li'), { y: 5, opacity: 0, stagger: 0.1 }, '<.1');
+
+    return () => {
+      timeline.kill();
+    };
+  }, []);
+
   return (
-    <nav className={classes.container}>
+    <nav className={classes.container} ref={nav}>
       <Link href="/">
         <a className={classes.logo}>
           <h3>Logo</h3>

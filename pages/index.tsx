@@ -11,6 +11,9 @@ import Notification from '../components/shared/Notification';
 import notificationContext from '../context/notificationsContext';
 import Loading from '../components/shared/Loading';
 import useScrollToTop from '../hooks/useScrollTop';
+import Disclaimer from '../components/shared/Disclaimer';
+import Navigation from '../components/shared/Navigation';
+import NavigationMobile from '../components/shared/NavigationMobile';
 
 interface Props {
   posts: post[];
@@ -26,6 +29,9 @@ const Home: NextPage<Props> = ({ posts }) => {
     <>
       {postsContext.posts.length > 0 ? (
         <>
+          <Disclaimer></Disclaimer>
+          <Navigation></Navigation>
+          <NavigationMobile></NavigationMobile>
           <Featured></Featured>
           <Layout>
             <Posts></Posts>

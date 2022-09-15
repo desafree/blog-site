@@ -7,6 +7,10 @@ import { useContext } from 'react';
 import postsContext from '../../context/postsContext';
 import Loading from '../../components/shared/Loading';
 import useScrollToTop from '../../hooks/useScrollTop';
+import Disclaimer from '../../components/shared/Disclaimer';
+import Navigation from '../../components/shared/Navigation';
+import NavigationMobile from '../../components/shared/NavigationMobile';
+import Head from 'next/head';
 
 interface Props {
   category: category;
@@ -21,6 +25,13 @@ const Category: NextPage<Props> = ({ category, posts }) => {
 
   return (
     <>
+      <Head>
+        <title>{category.name}</title>
+        <meta name="description" content={category.description}></meta>
+      </Head>
+      <Disclaimer></Disclaimer>
+      <Navigation></Navigation>
+      <NavigationMobile></NavigationMobile>
       {postsCtx.posts.length > 0 && postsCtx.category.name ? (
         <>
           <CategoryPosts></CategoryPosts>

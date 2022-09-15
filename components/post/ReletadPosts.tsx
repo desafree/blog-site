@@ -4,6 +4,9 @@ import Link from 'next/link';
 import post from '../../typescript/interface/post';
 import { FC } from 'react';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import useLayoutEffect from '../../hooks/useIsomorphicLayoutEffect';
 
 interface Props {
   relatedPost: post[];
@@ -11,8 +14,22 @@ interface Props {
 }
 
 const ReletadPosts: FC<Props> = ({ relatedPost, postTime }) => {
+  const container = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const animation = gsap.fromTo(
+      container.current,
+      { x: 5, opacity: 0 },
+      { x: 0, opacity: 1 }
+    );
+
+    return () => {
+      animation.kill();
+    };
+  }, []);
+
   return (
-    <div className={classes.container}>
+    <div className={classes.container} ref={container}>
       <h4>Reletad Post</h4>
       {relatedPost.map((post) => {
         return (
