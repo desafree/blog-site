@@ -3,6 +3,7 @@ import PostPreview from '../homepage/PostPreview';
 import Link from 'next/link';
 import post from '../../typescript/interface/post';
 import { FC } from 'react';
+import Image from 'next/image';
 
 interface Props {
   relatedPost: post[];
@@ -22,14 +23,26 @@ const ReletadPosts: FC<Props> = ({ relatedPost, postTime }) => {
         {postTime.prev && (
           <Link href={`/${postTime.prev.category}/${postTime.prev.slug}`}>
             <a>
-              <img src="/images/icons/arrow-back.svg" alt="" /> prev post
+              <Image
+                src="/images/icons/arrow-back.svg"
+                width={15}
+                height={15}
+                alt="arrow back"
+              ></Image>
+              prev post
             </a>
           </Link>
         )}
         {postTime.next && (
           <Link href={`/${postTime.next.category}/${postTime.next.slug}`}>
             <a>
-              next post <img src="/images/icons/arrow-forward.svg" alt="" />
+              next post{' '}
+              <Image
+                src="/images/icons/arrow-forward.svg"
+                width={15}
+                height={15}
+                alt="arrow forward"
+              ></Image>{' '}
             </a>
           </Link>
         )}

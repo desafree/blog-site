@@ -10,12 +10,14 @@ import postContext from '../context/postsContext';
 import Notification from '../components/shared/Notification';
 import notificationContext from '../context/notificationsContext';
 import Loading from '../components/shared/Loading';
+import useScrollToTop from '../hooks/useScrollTop';
 
 interface Props {
   posts: post[];
 }
 
 const Home: NextPage<Props> = ({ posts }) => {
+  useScrollToTop();
   const postsContext = useContext(postContext);
   const notification = useContext(notificationContext).type;
   postsContext.updatePosts(posts);
@@ -41,7 +43,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const client = await MongoClient.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bcs0k91.mongodb.net/?retryWrites=true&w=majority`
   );
@@ -55,6 +57,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = JSON.parse(JSON.stringify(response));
   return {
     props: { posts: data },
-    revalidate: 1000,
   };
 };

@@ -24,11 +24,15 @@ const CommentForm = () => {
         method: 'POST',
         body: JSON.stringify(commentObj),
         headers: { 'Content-Type': 'application/json' },
-      }).then(() => {
-        updateComments();
-        form.current?.reset();
-        updateNotification('comment');
-      });
+      })
+        .then(() => {
+          updateComments();
+          form.current?.reset();
+          updateNotification('comment');
+        })
+        .catch(() => {
+          updateNotification('error');
+        });
     }
   };
 

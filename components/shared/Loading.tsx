@@ -1,9 +1,15 @@
 import classes from './Loading.module.scss';
+import Image from 'next/image';
 
 const Loading = () => {
   return (
     <div className={classes.container}>
-      <img src="/images/icons/spinner.svg" alt="" />
+      <Image
+        src="/images/icons/spinner.svg"
+        width={20}
+        height={20}
+        alt="spinner"
+      ></Image>
     </div>
   );
 };

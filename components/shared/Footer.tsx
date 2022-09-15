@@ -8,7 +8,7 @@ const Footer = () => {
       <div className={classes.intro}>
         <Link href="/">
           <a>
-            <h3>Newspaper.</h3>
+            <h3>Logo</h3>
           </a>
         </Link>
         <p>
@@ -24,13 +24,13 @@ const Footer = () => {
             <Link href="/">Home page</Link>
           </li>
           <li>
-            <Link href="/">About Us</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
             <Link href="/All-Posts">All Post</Link>
           </li>
           <li>
-            <Link href="/HTML/slug-prova">Post detail</Link>
+            <Link href="/JavaScript/slug-prova1">Post detail</Link>
           </li>
         </ul>
       </div>

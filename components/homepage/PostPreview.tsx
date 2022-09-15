@@ -3,6 +3,7 @@ import Link from 'next/link';
 import post from '../../typescript/interface/post';
 import { FC } from 'react';
 import formatDate from '../../utils/formatDate';
+import Image from 'next/image';
 
 interface Props {
   post: post;
@@ -25,7 +26,13 @@ const PostPreview: FC<Props> = ({ post }) => {
       <div className={classes.read}>
         <Link href={`/${post.category}/${post.slug}`}>
           <a>
-            Read more <img src="/images/icons/arrow-circle-right.svg" alt="" />
+            Read more{' '}
+            <Image
+              src="/images/icons/arrow-circle-right.svg"
+              width={20}
+              height={20}
+              alt="arrow right"
+            ></Image>
           </a>
         </Link>
       </div>

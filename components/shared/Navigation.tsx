@@ -1,5 +1,6 @@
 import classes from './Navigation.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navigation = () => {
   return (
@@ -14,10 +15,10 @@ const Navigation = () => {
           <Link href="/All-Posts">All Posts</Link>
         </li>
         <li>
-          <Link href="/JavaScript/slug-prova">Post Detail</Link>
+          <Link href="/JavaScript/slug-prova1">Post Detail</Link>
         </li>
         <li>
-          <Link href="/">About us</Link>
+          <Link href="/about">About</Link>
         </li>
       </ul>
       <ul className={classes.socials}>
@@ -27,7 +28,12 @@ const Navigation = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="/images/icons/github-icon.svg" alt="github icon" />
+            <Image
+              src="/images/icons/github-icon.svg"
+              width={25}
+              height={25}
+              alt="github icon"
+            ></Image>
           </a>
         </li>
         <li>
@@ -36,7 +42,12 @@ const Navigation = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
+            <Image
+              src="/images/icons/linkedin-icon.svg"
+              width={25}
+              height={25}
+              alt="linkedin icon"
+            ></Image>
           </a>
         </li>
       </ul>

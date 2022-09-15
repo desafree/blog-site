@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import classes from './Featured.module.scss';
 import postContext from '../../context/postsContext';
+import Image from 'next/image';
 
 const Featured = () => {
   const posts = useContext(postContext).posts;
@@ -54,10 +55,20 @@ const Featured = () => {
       }}
     >
       <button onClick={handleNext} className={classes.right}>
-        <img src="/images/icons/arrow-circle-right-solid.svg" alt="" />
+        <Image
+          src="/images/icons/arrow-circle-right-solid.svg"
+          width={20}
+          height={20}
+          alt="arrow right"
+        ></Image>
       </button>
       <button onClick={handlePrev} className={classes.left}>
-        <img src="/images/icons/arrow-circle-left-solid.svg" alt="" />
+        <Image
+          src="/images/icons/arrow-circle-left-solid.svg"
+          width={20}
+          height={20}
+          alt="arrow left"
+        ></Image>
       </button>
       <h2>{featuredPosts[index].text.title.primary}</h2>
       <p>{featuredPosts[index].text.paragraph.preview}</p>

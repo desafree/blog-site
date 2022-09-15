@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 import classes from './ReadMore.module.scss';
+import Image from 'next/image';
 
 interface Props {
   url: string;
@@ -11,7 +12,12 @@ const ReadMore: FC<Props> = ({ url }) => {
     <Link href={url}>
       <a className={classes.container}>
         Read more{' '}
-        <img src="/images/icons/arrow-circle-right-footer.svg" alt="" />
+        <Image
+          width={20}
+          height={20}
+          src="/images/icons/arrow-circle-right-footer.svg"
+          alt="read more icon"
+        ></Image>
       </a>
     </Link>
   );

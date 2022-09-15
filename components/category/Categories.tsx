@@ -8,8 +8,6 @@ const Categories = () => {
   const [active, setActive] = useState(router.query.category);
   const categories = ['All-Posts', 'HTML', 'CSS', 'JavaScript', 'React.js'];
 
-  console.log(router.query.category, active);
-
   useEffect(() => {
     setActive(router.query.category);
   }, [router.query.category]);

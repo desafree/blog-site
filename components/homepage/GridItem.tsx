@@ -3,7 +3,6 @@ import post from '../../typescript/interface/post';
 import { FC } from 'react';
 import Link from 'next/link';
 import formatDate from '../../utils/formatDate';
-import { type } from 'os';
 interface Props {
   post: post;
 }

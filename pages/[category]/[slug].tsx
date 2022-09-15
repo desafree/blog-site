@@ -7,6 +7,7 @@ import commentContext from '../../context/commentsContext';
 import { useRouter } from 'next/router';
 import notificationContext from '../../context/notificationsContext';
 import Notification from '../../components/shared/Notification';
+import useScrollToTop from '../../hooks/useScrollTop';
 
 interface Props {
   post: post;
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const PostDetail: NextPage<Props> = ({ post, relatedPost, postTime }) => {
+  useScrollToTop();
   const notification = useContext(notificationContext).type;
   const commentsCtx = useContext(commentContext);
   const slug = useRouter().query.slug;
@@ -56,11 +58,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const postComment = responseComments.filter((comment) => {
     if (comment.postSlug === context.params?.slug) return true;
   });
-  const posts = await db.collection('posts').find().toArray();
-  const postOrdered = posts.sort((a, b) => {
-    if (a.created > b.created) return -1;
-    else return 1;
-  });
+  const posts = await db
+    .collection('posts')
+    .find()
+    .sort({ created: -1 })
+    .toArray();
   const [post] = posts.filter((post) => {
     if (
       post.category === context.params?.category &&
@@ -68,13 +70,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     )
       return true;
   });
-  const postIndex = postOrdered.findIndex((postItem) => {
+  const postIndex = posts.findIndex((postItem) => {
     if (postItem === post) return true;
     return false;
   });
-  const postNext =
-    postIndex === postOrdered.length - 1 ? null : postOrdered[postIndex + 1];
-  const postPrev = postIndex === 0 ? null : postOrdered[postIndex - 1];
+  const postNext = postIndex === posts.length - 1 ? null : posts[postIndex + 1];
+  const postPrev = postIndex === 0 ? null : posts[postIndex - 1];
   const relatedPosts = posts
     .filter((post) => {
       if (

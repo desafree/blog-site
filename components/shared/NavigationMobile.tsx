@@ -1,6 +1,7 @@
 import classes from './NavigationMobile.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const NavigationMobile = () => {
   const [menu, setMenu] = useState(false);
@@ -13,28 +14,38 @@ const NavigationMobile = () => {
       <div className={classes.nav}>
         <Link href="/">
           <a>
-            <h4>Newspapper.</h4>
+            <h4>Logo</h4>
           </a>
         </Link>
         <button onClick={handleClick}>
-          <img src="/images/icons/menu.svg" alt="" />
+          <Image
+            src="/images/icons/menu.svg"
+            width={20}
+            height={20}
+            alt="menu icon"
+          ></Image>
         </button>
       </div>
       {menu && (
         <nav className={classes.container}>
           <button onClick={handleClick}>
-            <img src="/images/icons/close.svg" alt="" />
+            <Image
+              src="/images/icons/close.svg"
+              width={30}
+              height={30}
+              alt="close icon"
+            ></Image>
           </button>
           <h5>Menu</h5>
           <ul className={classes.links}>
-            <li>
+            <li onClick={handleClick}>
               <Link href="/All-Posts">All Posts</Link>
             </li>
-            <li>
-              <Link href="/JavaScript/slug-prova">Post Detail</Link>
+            <li onClick={handleClick}>
+              <Link href="/JavaScript/slug-prova1">Post Detail</Link>
             </li>
-            <li>
-              <Link href="/">About us</Link>
+            <li onClick={handleClick}>
+              <Link href="/about">About</Link>
             </li>
           </ul>
           <ul className={classes.socials}>
@@ -44,10 +55,12 @@ const NavigationMobile = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
+                <Image
                   src="/images/icons/github-icon-white.svg"
+                  width={30}
+                  height={30}
                   alt="github icon"
-                />
+                ></Image>
               </a>
             </li>
             <li>
@@ -56,10 +69,12 @@ const NavigationMobile = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
+                <Image
+                  width={30}
+                  height={30}
                   src="/images/icons/linkedin-icon-white.svg"
                   alt="linkedin icon"
-                />
+                ></Image>
               </a>
             </li>
           </ul>

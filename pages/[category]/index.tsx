@@ -6,6 +6,7 @@ import post from '../../typescript/interface/post';
 import { useContext } from 'react';
 import postsContext from '../../context/postsContext';
 import Loading from '../../components/shared/Loading';
+import useScrollToTop from '../../hooks/useScrollTop';
 
 interface Props {
   category: category;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const Category: NextPage<Props> = ({ category, posts }) => {
+  useScrollToTop();
   const postsCtx = useContext(postsContext);
   postsCtx.updateCategory(category);
   postsCtx.updatePosts(posts);

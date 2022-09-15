@@ -19,6 +19,9 @@ const CommentsContextProvider: FC<Props> = ({ children }) => {
       })
       .then((data) => {
         setComments(JSON.parse(data.comments));
+      })
+      .catch(() => {
+        console.log('something went wrong');
       });
   };
 

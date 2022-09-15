@@ -15,10 +15,14 @@ const Newsletter = () => {
         method: 'POST',
         body: JSON.stringify(commentObj),
         headers: { 'Content-Type': 'application/json' },
-      }).then(() => {
-        form.current?.reset();
-        sendNotification('email');
-      });
+      })
+        .then(() => {
+          form.current?.reset();
+          sendNotification('email');
+        })
+        .catch(() => {
+          sendNotification('error');
+        });
     }
   };
 

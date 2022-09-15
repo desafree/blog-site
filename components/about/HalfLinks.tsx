@@ -1,4 +1,5 @@
 import classes from './HalfLinks.module.scss';
+import Image from 'next/image';
 
 const HalfLinks = () => {
   return (
@@ -15,7 +16,12 @@ const HalfLinks = () => {
         <ul>
           <li>
             <a href="mailto:nicoladesanctis99@gmail.com">
-              <img src="/images/icons/mail.svg" alt="mail icon" />
+              <Image
+                src="/images/icons/mail.svg"
+                alt="mail icon"
+                width={50}
+                height={50}
+              ></Image>
             </a>
           </li>
           <li>
@@ -24,7 +30,12 @@ const HalfLinks = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/images/icons/github-icon.svg" alt="github icon" />
+              <Image
+                src="/images/icons/github-icon.svg"
+                alt="github icon"
+                width={50}
+                height={50}
+              ></Image>
             </a>
           </li>
           <li>
@@ -33,7 +44,12 @@ const HalfLinks = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/images/icons/linkedin-icon.svg" alt="linkedin icon" />
+              <Image
+                src="/images/icons/linkedin-icon.svg"
+                alt="linkedin icon"
+                width={50}
+                height={50}
+              ></Image>
             </a>
           </li>
         </ul>

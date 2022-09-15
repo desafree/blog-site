@@ -3,7 +3,7 @@ import IntroPost from './IntroPost';
 import PostBody from './PostBody';
 import PostComments from './PostComments';
 import CommentForm from './CommentForm';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import post from '../../typescript/interface/post';
 
 interface Props {

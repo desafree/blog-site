@@ -5,8 +5,10 @@ import Newsletter from '../components/homepage/Newsletter';
 import { useContext } from 'react';
 import notificationContext from '../context/notificationsContext';
 import Notification from '../components/shared/Notification';
+import useScrollToTop from '../hooks/useScrollTop';
 
 const AboutPage = () => {
+  useScrollToTop();
   const notification = useContext(notificationContext).type;
   return (
     <>
