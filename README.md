@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  Blog Template
+  <br>
+</h1>
 
-## Getting Started
+<h4 align="center">A Blog template website created using Next.js, CSS module and Typescript. Integrated with a MongoDB database to store content.</h4>
 
-First, run the development server:
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="https://blog-project-site.vercel.app/">live site</a> •
+  <a href="#tech-used">Technologies</a> •
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Server-side rendering
+- dynamic routes
+- filter functionality
+- comment functionality
+- animation created with GSAP
+- API routes
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This software uses the following open source packages:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [Next.js](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [SASS](https://sass-lang.com/)
+- [GSAP](https://greensock.com/gsap/)
+- [Mongodb](https://www.mongodb.com/)
 
-## Learn More
+## Other Projects
 
-To learn more about Next.js, take a look at the following resources:
+[e-commerce app](https://github.com/desafree/cat-site) - CatWiki
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Disclaimer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project was created only for practice. All the images in the website were taken from unsplash (https://unsplash.com/)
